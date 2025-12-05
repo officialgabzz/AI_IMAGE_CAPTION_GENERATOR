@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Caption Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖼️ AI Image Caption Generator</h1>
+            <p class="subtitle">Upload an image and get intelligent captions powered by neural networks</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <div class="upload-content">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p class="upload-text">Drop an image here or click to browse</p>
+                        <p class="upload-hint">Supports: JPEG, PNG, WebP, BMP (Max 10MB)</p>
+                    </div>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                </div>
+
+                <div class="preview-section" id="previewSection" style="display: none;">
+                    <img id="imagePreview" src="" alt="Preview">
+                    <button class="remove-btn" id="removeBtn">Remove Image</button>
+                </div>
+            </div>
+
+            <div class="options-section">
+                <div class="option-group">
+                    <label for="modelSelect">AI Model:</label>
+                    <select id="modelSelect">
+                        <option value="blip" selected>BLIP (Salesforce) - Recommended</option>
+                        <option value="git">GIT (Microsoft) - Fast</option>
+                    </select>
+                </div>
+
+                <div class="option-group">
+                    <label for="languageSelect">Translate to:</label>
+                    <select id="languageSelect">
+                        <option value="">No Translation (English only)</option>
+                    </select>
+                </div>
+
+                <button class="generate-btn" id="generateBtn" disabled>
+                    Generate Caption
+                </button>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h2>Generated Caption</h2>
+                <div class="caption-box">
+                    <p class="caption-text" id="captionText"></p>
+                    <div class="caption-meta">
+                        <span class="confidence" id="confidence"></span>
+                        <span class="model" id="modelUsed"></span>
+                    </div>
+                </div>
+
+                <div class="translation-box" id="translationBox" style="display: none;">
+                    <h3>Translation</h3>
+                    <p class="translation-text" id="translationText"></p>
+                    <p class="language-name" id="languageName"></p>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="copy-btn" id="copyBtn">Copy Caption</button>
+                    <button class="new-btn" id="newBtn">Try Another Image</button>
+                </div>
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Generating caption...</p>
+            </div>
+
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <p id="errorText"></p>
+            </div>
+        </main>
+
+        <footer>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Supported Languages:</span>
+                    <span class="stat-value" id="languageCount">50+</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">AI Models:</span>
+                    <span class="stat-value">2</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Processing:</span>
+                    <span class="stat-value">Local & Private</span>
+                </div>
+            </div>
+            <p class="footer-text">
+                Powered by PyTorch, Transformers, and Flask | 
+                <a href="https://github.com" target="_blank">View on GitHub</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

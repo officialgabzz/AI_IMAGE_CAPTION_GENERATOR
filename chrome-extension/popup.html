@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Caption Generator Settings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 350px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      font-size: 18px;
+      color: #111827;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    
+    .setting-group {
+      margin-bottom: 16px;
+    }
+    
+    label {
+      display: block;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #e5e7eb;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    
+    input:focus, select:focus {
+      outline: none;
+      border-color: #6366f1;
+    }
+    
+    button {
+      width: 100%;
+      background: #6366f1;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    
+    button:hover {
+      background: #4f46e5;
+    }
+    
+    .status {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      text-align: center;
+      display: none;
+    }
+    
+    .status.success {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    
+    .status.error {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .info {
+      margin-top: 16px;
+      padding: 12px;
+      background: #f3f4f6;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🖼️ AI Caption Settings</h1>
+    
+    <div class="setting-group">
+      <label for="apiUrl">API Server URL:</label>
+      <input type="text" id="apiUrl" placeholder="http://localhost:5000" value="http://localhost:5000">
+    </div>
+    
+    <div class="setting-group">
+      <label for="model">AI Model:</label>
+      <select id="model">
+        <option value="blip">BLIP (Recommended)</option>
+        <option value="git">GIT (Faster)</option>
+      </select>
+    </div>
+    
+    <div class="setting-group">
+      <label for="language">Default Language:</label>
+      <select id="language">
+        <option value="">English (No translation)</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="ja">Japanese</option>
+        <option value="zh-CN">Chinese (Simplified)</option>
+        <option value="ar">Arabic</option>
+        <option value="hi">Hindi</option>
+      </select>
+    </div>
+    
+    <button id="saveBtn">Save Settings</button>
+    
+    <div class="status" id="status"></div>
+    
+    <div class="info">
+      <strong>How to use:</strong><br>
+      1. Make sure the server is running<br>
+      2. Right-click any image on a webpage<br>
+      3. Select "Generate Caption for Image"
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

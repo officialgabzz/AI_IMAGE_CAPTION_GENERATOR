@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools>=65.0.0", "wheel>=0.40.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-image-caption-generator"
+version = "1.0.0"
+description = "AI-powered image caption generator with multilingual support"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [
+    {name = "Community Contributors", email = "your.email@example.com"}
+]
+keywords = [
+    "ai",
+    "image-captioning",
+    "deep-learning",
+    "pytorch",
+    "transformers",
+    "multilingual",
+    "computer-vision",
+    "flask",
+    "chrome-extension"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Multimedia :: Graphics",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: Flask",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+    "werkzeug>=3.0.0",
+    "pillow>=10.0.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "transformers>=4.30.0",
+    "sentencepiece>=0.1.99",
+    "deep-translator>=1.11.0",
+    "langdetect>=1.0.9",
+    "numpy>=1.26.0",
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "flake8>=6.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/ai-image-caption-generator"
+Documentation = "https://github.com/yourusername/ai-image-caption-generator#readme"
+Repository = "https://github.com/yourusername/ai-image-caption-generator"
+Issues = "https://github.com/yourusername/ai-image-caption-generator/issues"
+
+[project.scripts]
+caption-image = "src.captioner:main"
+
+[tool.setuptools]
+packages = ["src", "src.models", "src.utils"]
+
+[tool.setuptools.package-data]
+"*" = ["*.txt", "*.md"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src --cov-report=html --cov-report=term"
