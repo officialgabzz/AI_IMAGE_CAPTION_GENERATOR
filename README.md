@@ -252,10 +252,10 @@ If you use this project in your research, please cite:
 
 ```bibtex
 @software{ai_image_caption_generator,
-  author = {Community Contributors},
+  author = {Malik Garuba},
   title = {AI-Based Image Caption Generator},
   year = {2025},
-  url = {https://github.com/yourusername/community_contrib}
+  url = {https://github.com/officialgabzz/AI_IMAGE_CAPTION_GENERATOR#}
 }
 ```
 
